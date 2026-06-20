@@ -88,7 +88,7 @@ video {
 	grid-template-columns: repeat(4, 100px);
 	grid-gap: 0.5em;
     justify-content: center;
-    margin: 4em 1em;
+    margin: 2em 1em;
 }
 #bingoContainer > div {
     border: 2px solid #022371;
@@ -106,6 +106,9 @@ video {
 #box13,
 #box15 {
     background-color: #022371;
+}
+#inheritBingo {
+    margin: 4em 1em;
 }
 
 /* the photos are created by the capturePhoto function */
