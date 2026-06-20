@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <button>Lageplan</button>
+        <button id="colorMode">Dark/Light</button>
+        <button>English</button>
+    </header>
+    <div class="container">
+        <section id="aufgabenstellung">
+            <h1>BINGO</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A id voluptatem fuga, hic expedita facere incidunt illum enim temporibus eaque excepturi laborum ex distinctio quidem! Harum enim vitae illum alias.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut accusantium tempore perspiciatis nesciunt harum, illum fuga? Asperiores, optio nobis ad nesciunt possimus sequi hic placeat repellendus eveniet. Deleniti, nihil ut!
+            </p>
+            <button onclick="bingo()">Weiter</button>
+        </section>
+
+
+        <div id="boxPropmts">
+            <h3 style="margin-top: -10%; font-style: italic;">Klicke zweimal auf ein Kästchen, um ein Bild zu machen.</h3>
+            <h2>Finde etwas, das...</h2>
+            <h2 id="textPromt">Klicke auf eine der Boxen.</h2>
+        </div>
+
+        <div id="takeBackBingo">
+            <div id="bingoContainer">
+                <div id="box1"></div>
+                <div id="box2"></div>
+                <div id="box3"></div>
+                <div id="box4"></div>
+
+                <div id="box5"></div>
+                <div id="box6"></div>
+                <div id="box7"></div>
+                <div id="box8"></div>
+
+                <div id="box9"></div>
+                <div id="box10"></div>
+                <div id="box11"></div>
+                <div id="box12"></div>
+                
+                <div id="box13"></div>
+                <div id="box14"></div>
+                <div id="box15"></div>
+                <div id="box16"></div>
+            </div>
+        </div>
+
+        <div id="bingoBtnContainer">
+            <!--<button onclick="camera()">Foto</button>-->
+            <div>
+                <button onclick="aufgabenstellung()">zurück</button>
+                <button onclick="fertigBtn()">Fertig</button>
+            </div>
+        </div>
+
+        <video autoplay id="video"></video>
+
+        <div class="controls" id="controlBtns">
+            <button id="capture-btn"></button>
+            <button id="return-btn" onclick="bingo()">zurück</button>
+        </div>
+        <div id="photos"></div>
+
+        <section id="download-section">
+            <div id="download-card">
+                <h2 style="margin-bottom: -1em;">Dein Besuch <br> bei der Zeche Zollern</h2>
+                <div id="inheritBingo"></div>
+                <p style="margin-top: -1.2em;">Konntest du alle Interfaces gut finden?</p>
+            </div>
+            <div id="download-Btns">
+                <button onclick="bingo()">zurück</button>
+                <button id="download-btn">Download</button>
+            </div>
+            <h3 style="margin-top: 5%; font-style: italic;">(Ps. Ich hoffe, da ist nichts doppelt, ich kann es nicht überprüfen)</h3>
+        </section>
+        
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

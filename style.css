@@ -1,0 +1,122 @@
+* {
+    font-family: "IBM Plex Sans", sans-serif;
+    /* Schriftarten von Adobe Fonts = neue frutiger world (Bingo) & unbounded medium (subtitle) & regular (die Kästchen)
+        wir bekommen deren Schriftart */
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: #022371;
+}
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-y: hidden;
+}
+header {
+    position: absolute;
+    height: 2vh;
+    top: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+button {
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5%;
+    background-color: #fff;
+    border: 0;
+    font-style: bold;
+}
+button:hover {
+    color: #02237170;
+}
+
+video {
+    border: 2px solid #022371;
+    width: 480px;
+    height: 480px;
+    object-fit: cover;
+}
+.controls {
+    margin-top: 10px;
+}
+.controls input {
+    padding: 5px;
+    width: 100px;
+}
+.controls button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* my part */
+#bingoContainer {
+    display: grid;
+	grid-template-rows: repeat(4, 150px);
+	grid-template-columns: repeat(4, 150px);
+	grid-gap: 1em;
+    justify-content: center;
+    margin: 4em 1em;
+}
+#bingoContainer > div {
+    border: 2px solid #022371;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#box2,
+#box4,
+#box5,
+#box7,
+#box10,
+#box12,
+#box13,
+#box15 {
+    background-color: #022371;
+}
+
+.container h1 {
+    font-size: 6em;
+    margin: 0.2em 1em 0em 1em;
+}
+.container h2 {
+    font-size: 2.5em;
+    font-weight: 400;
+    margin: 0.2em 1em;
+}
+.container p {
+    font-size: 1.4em;
+}
+
+/* the photos are created by the capturePhoto function */
+.photo {
+    margin: 0;
+    position: relative;
+    border: 0;
+}
+.photo img {
+    width: 150px;
+    height: 150px;
+    border: 0;
+    margin-top: 3%;
+}
+
+
+/* styling of the download section */
+
+#download-card {
+    border: 4px solid #022371;
+    padding: 5%;
+    margin-bottom: 1%;
+}
