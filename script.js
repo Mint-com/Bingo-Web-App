@@ -127,6 +127,7 @@ captureBtn.addEventListener("click", () => {
         count = 1;
         captureBtn.textContent = "Capture";
     }
+    bingo();
 });
 
 function capturePhoto(){
