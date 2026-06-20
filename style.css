@@ -43,6 +43,30 @@ button:hover {
     color: #02237170;
 }
 
+.container h1 {
+    font-size: 4em;
+    font-weight: 500;
+    margin: 0.2em 1em 0em 1em;
+}
+.container h2 {
+    font-size: 2em;
+    font-weight: 400;
+    margin: 0.2em 1em;
+}
+.container p {
+    font-size: 1.2em;
+}
+#aufgabenstellung p {
+    text-align: left;
+    line-height: 1.6;
+}
+.container h3 {
+    font-style: italic;
+}
+#download-section h3 {
+    margin-top: 5%;
+}
+
 video {
     border: 2px solid #022371;
     width: 480px;
@@ -56,17 +80,13 @@ video {
     padding: 5px;
     width: 100px;
 }
-.controls button {
-    padding: 10px 20px;
-    cursor: pointer;
-}
 
 /* my part */
 #bingoContainer {
     display: grid;
 	grid-template-rows: repeat(4, 100px);
 	grid-template-columns: repeat(4, 100px);
-	grid-gap: 1em;
+	grid-gap: 0.5em;
     justify-content: center;
     margin: 4em 1em;
 }
@@ -86,19 +106,6 @@ video {
 #box13,
 #box15 {
     background-color: #022371;
-}
-
-.container h1 {
-    font-size: 6em;
-    margin: 0.2em 1em 0em 1em;
-}
-.container h2 {
-    font-size: 2.5em;
-    font-weight: 400;
-    margin: 0.2em 1em;
-}
-.container p {
-    font-size: 1.4em;
 }
 
 /* the photos are created by the capturePhoto function */
@@ -124,6 +131,16 @@ video {
 }
 
 @media screen and (min-width: 1151px) {
+    .container h1 {
+        font-size: 6em;
+        margin: 0.2em 1em 0em 1em;
+    }
+    .container h2 {
+        font-size: 2.5em;
+    }
+    .container p {
+        font-size: 1.4em;
+    }
     #bingoContainer {
         grid-template-rows: repeat(4, 150px);
         grid-template-columns: repeat(4, 150px);
