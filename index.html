@@ -13,15 +13,17 @@
     <header>
         <button>Lageplan</button>
         <button id="colorMode">Dark/Light</button>
-        <button>English</button>
+        <button id="language" onclick="engLanguage()">English</button>
     </header>
     <div class="container">
         <section id="aufgabenstellung">
             <h1>BINGO</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A id voluptatem fuga, hic expedita facere incidunt illum enim temporibus eaque excepturi laborum ex distinctio quidem! Harum enim vitae illum alias.
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut accusantium tempore perspiciatis nesciunt harum, illum fuga? Asperiores, optio nobis ad nesciunt possimus sequi hic placeat repellendus eveniet. Deleniti, nihil ut!
-            </p>
+            <div class="textParagraph">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A id voluptatem fuga, hic expedita facere incidunt illum enim temporibus eaque excepturi laborum ex distinctio quidem! Harum enim vitae illum alias.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut accusantium tempore perspiciatis nesciunt harum, illum fuga? Asperiores, optio nobis ad nesciunt possimus sequi hic placeat repellendus eveniet. Deleniti, nihil ut!
+                </p>
+            </div>
             <button onclick="bingo()">Weiter</button>
         </section>
 
@@ -76,7 +78,7 @@
             <div id="download-card">
                 <h2 style="margin-bottom: -1em;">Dein Besuch <br> bei der Zeche Zollern</h2>
                 <div id="inheritBingo"></div>
-                <p style="margin-top: -1.2em;">Konntest du alle Interfaces gut finden?</p>
+                <h2 class="subtitle" style="margin-top: -1.2em;">Konntest du alle Interfaces gut finden?</h2>
             </div>
             <div id="download-Btns">
                 <button onclick="bingo()">zurück</button>

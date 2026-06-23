@@ -9,10 +9,12 @@ var photosContainer = document.getElementById("photos");
 var promtH2 = document.getElementById("textPromt");
 var textPromt = promtH2.textContent;
 
+var inEnglish = false;
+
 var options = ["man drehen kann", "einrastet", "auf Berührung reagiert", "digital ist", "früher mechanisch war & heute digital ist",
                 "man drücken kann", "mit dir kommuniziert", "du bedienen kannst, ohne hinzusehen", "auf Bewegung reagiert",
                 /* 9 - 15 */ "noch kein Prompt :)", "noch kein Prompt :", "noch kein Prompt ", "noch kein Prompt", "noch kein Promp",
-                "noch kein Prom", "noch kein Pro"];
+                "noch kein Prom", "noch kein Pro", "you can twist", "snaps into place"];
 
 var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"), document.getElementById("box3"), document.getElementById("box4"),
                 document.getElementById("box5"), document.getElementById("box6"), document.getElementById("box7"), document.getElementById("box8"),
@@ -20,7 +22,7 @@ var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"
                 document.getElementById("box13"), document.getElementById("box14"), document.getElementById("box15"), document.getElementById("box16")];
 
 //Access the camera and stream to video
-navigator.mediaDevices.getUserMedia({ video: true, facingMode: 'environment' }).then((stream) => {
+navigator.mediaDevices.getUserMedia({ video: true}, {facingMode: 'environment'}).then((stream) => {
     video.srcObject = stream;
 });
 
@@ -33,13 +35,16 @@ bingoDivs.forEach.call(bingoDivs, function(elem, index) {
             lol.style.backgroundColor = '';
         });
         clicks++;
+        index = Number(index);
+        inEnglish ? options[index += 16] : options [index +=0];
         switch(index){
             case 0:
                 promtH2.textContent = options[0];
                 elem.style.backgroundColor = '#022371';
+                inEnglish ? console.log('should work') : console.log('nah');
                 break;
             case 1:
-                promtH2.textContent = options[1];
+                promtH2.textContent = index, typeof index++;
                 elem.style.backgroundColor = '#fff';
                 break;
             case 2:
@@ -85,11 +90,13 @@ bingoDivs.forEach.call(bingoDivs, function(elem, index) {
                 promtH2.textContent = options[15];
                 break;
             default:
-                textPromt;
+                promtH2.textContent = textPromt;
         }
         if (clicks == 2){
-            captureBtn.disabled = false;
-            camera();
+            promtH2.textContent = textPromt;
+            click = 0;
+            //captureBtn.disabled = false;
+            //camera();
         }
     });
 });
@@ -391,7 +398,14 @@ function downloadCardImage(){
     // Create download image feature
     
 }
+*/
 
+function engLanguage(){
+    //var languageSwitch = document.getElementById('language');
+
+    inEnglish = !inEnglish;
+    //inEnglish ? languageSwitch.innerHTML = 'Deutsch' : languageSwitch.innerHTML = 'English';
+}
 
 
 // Für Bingo muss mit dem Klick auf dem Kästchen das Video-Feed geöffnet werden
@@ -402,4 +416,3 @@ function downloadCardImage(){
 // 4. ab Bingo und/oder bis alle voll sind, kann man weiter und eine Karte herunterladen, Keywords jeweils?
 //      ask for confirmation before leaving the picture unchanged
 
-*/
