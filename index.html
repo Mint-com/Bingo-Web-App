@@ -11,8 +11,8 @@
 </head>
 <body>
     <header>
-        <button>Lageplan</button>
-        <button id="colorMode">Dark/Light</button>
+        <button id="lageplan">Lageplan</button>
+        <button id="colorMode">Dunkel</button>
         <button id="language" onclick="engLanguage()">English</button>
     </header>
     <div class="container">
@@ -24,14 +24,13 @@
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut accusantium tempore perspiciatis nesciunt harum, illum fuga? Asperiores, optio nobis ad nesciunt possimus sequi hic placeat repellendus eveniet. Deleniti, nihil ut!
                 </p>
             </div>
-            <button onclick="bingo()">Weiter</button>
+            <button id="weiterZuBingo" onclick="bingo()">weiter</button>
         </section>
 
 
         <div id="boxPropmts">
-            <h3>Klicke zweimal auf ein Kästchen, um ein Bild zu machen.</h3>
-            <h2>Finde etwas, das...</h2>
-            <h2 id="textPromt">(Klicke auf eine der Boxen.)</h2>
+            <h2 id="titlePrompts">Finde etwas, das...</h2>
+            <h2 id="textPromt">(Klicke auf eine der Boxen)</h2>
         </div>
 
         <div id="takeBackBingo">
@@ -59,10 +58,10 @@
         </div>
 
         <div id="bingoBtnContainer">
-            <!--<button onclick="camera()">Foto</button>-->
+            <button id="fotoBtn" onclick="camera()">Foto</button>
             <div>
-                <button onclick="aufgabenstellung()">zurück</button>
-                <button onclick="fertigBtn()">Fertig</button>
+                <button id="zurückZurAufgabe" onclick="aufgabenstellung()">zurück</button>
+                <button id="fertigMitBingo" onclick="fertigBtn()">Fertig</button>
             </div>
         </div>
 
@@ -72,19 +71,18 @@
             <button id="capture-btn"></button>
             <button id="return-btn" onclick="bingo()">zurück</button>
         </div>
-        <div id="photos"></div>
 
         <section id="download-section">
             <div id="download-card">
-                <h2 style="margin-bottom: -1em;">Dein Besuch <br> bei der Zeche Zollern</h2>
+                <h2 id="downloadCard-title" style="margin-bottom: -1em;">Dein Besuch<br>bei der Zeche Zollern</h2>
                 <div id="inheritBingo"></div>
-                <h2 class="subtitle" style="margin-top: -1.2em;">Konntest du alle Interfaces gut finden?</h2>
+                <h2 class="subtitle" id="downloadCard-subtitle" style="margin-top: -1.2em;">Konntest du alle Interfaces gut finden?</h2>
             </div>
             <div id="download-Btns">
-                <button onclick="bingo()">zurück</button>
-                <button id="download-btn">Download</button>
+                <button id="zurückZuBingo" onclick="bingo()">zurück</button>
+                <button id="download-btn">Herunterladen</button>
             </div>
-            <h3>(Ps. Ich hoffe, da ist nichts doppelt, ich kann es nicht überprüfen)</h3>
+            <h3 id="downloadCard-ps">(Ps. Ich hoffe, da ist nichts doppelt, ich kann es nicht überprüfen)</h3>
         </section>
         
     </div>

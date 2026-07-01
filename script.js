@@ -4,6 +4,14 @@ var video = document.getElementById("video");
 var returnBtn = document.getElementById("return-btn");
 var captureBtn = document.getElementById("capture-btn");
 captureBtn.textContent = "Capture";
+var fotoBtn = document.getElementById("fotoBtn");
+fotoBtn.disabled = true;
+
+if (fotoBtn.disabled == true){
+    fotoBtn.style.color = '#02237140';
+    fotoBtn.style.border = '1px solid #02237140';
+    fotoBtn.style.cursor = 'default';
+}
 
 var photosContainer = document.getElementById("photos");
 var promtH2 = document.getElementById("textPromt");
@@ -11,10 +19,12 @@ var textPromt = promtH2.textContent;
 
 var inEnglish = false;
 
-var options = ["man drehen kann", "einrastet", "auf Berührung reagiert", "digital ist", "früher mechanisch war & heute digital ist",
-                "man drücken kann", "mit dir kommuniziert", "du bedienen kannst, ohne hinzusehen", "auf Bewegung reagiert",
-                /* 9 - 15 */ "noch kein Prompt :)", "noch kein Prompt :", "noch kein Prompt ", "noch kein Prompt", "noch kein Promp",
-                "noch kein Prom", "noch kein Pro", "you can twist", "snaps into place"];
+var options = ["du täglich benutzt", "einrastet", "du schieben kannst", "dich warnt", "drückbar ist", "auf Bewegung reagiert",
+                "drehbar ist", "auf Berührung reagiert", "mit dir kommuniziert", "digital ist", "versteckte Funktionen besitzt",
+                "Geräusche macht", "sich bewegt", "du bedienen kannst ohne hinzusehen", "Strom benötigt", "früher mechanisch, heute digital ist",
+                /* englische Optionen */ "you use daily", "locks in", "can slide", "warns you", "requires power", "reacts to movement",
+                "twists or turns", "reacts to touch", "talks to you", "is digital", "has hidden features", "makes noise", "moves",
+                "can be used without looking", "can be pressed down", "used to be analogue and now is digital"];
 
 var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"), document.getElementById("box3"), document.getElementById("box4"),
                 document.getElementById("box5"), document.getElementById("box6"), document.getElementById("box7"), document.getElementById("box8"),
@@ -26,83 +36,73 @@ navigator.mediaDevices.getUserMedia({ video: true}, {facingMode: 'environment'})
     video.srcObject = stream;
 });
 
-var clicks = 0;
 
 // Choose a Box and display its condition
 bingoDivs.forEach.call(bingoDivs, function(elem, index) {
     elem.addEventListener('click', () => {
-        bingoDivs.forEach(function(lol) {
-            lol.style.backgroundColor = '';
-        });
-        clicks++;
-        index = Number(index);
-        inEnglish ? options[index += 16] : options [index +=0];
+        fotoBtn.disabled = false;
+        captureBtn.disabled = false;
         switch(index){
             case 0:
-                promtH2.textContent = options[0];
-                elem.style.backgroundColor = '#022371';
-                inEnglish ? console.log('should work') : console.log('nah');
+                promtH2.textContent = inEnglish == false ? options[0] : options[16];
                 break;
             case 1:
-                promtH2.textContent = index, typeof index++;
-                elem.style.backgroundColor = '#fff';
+                promtH2.textContent = inEnglish == false ? options[1] : options[17];
                 break;
             case 2:
-                promtH2.textContent = options[2];
+                promtH2.textContent = inEnglish == false ? options[2] : options[18];
                 break;
             case 3:
-                promtH2.textContent = options[3];
+                promtH2.textContent = inEnglish == false ? options[3] : options[19];
                 break;
             case 4:
-                promtH2.textContent = options[4];
+                promtH2.textContent = inEnglish == false ? options[4] : options[20];
                 break;
             case 5:
-                promtH2.textContent = options[5];
+                promtH2.textContent = inEnglish == false ? options[5] : options[21];
                 break;
             case 6:
-                promtH2.textContent = options[6];
+                promtH2.textContent = inEnglish == false ? options[6] : options[22];
                 break;
             case 7:
-                promtH2.textContent = options[7];
+                promtH2.textContent = inEnglish == false ? options[7] : options[23];
                 break;
             case 8:
-                promtH2.textContent = options[8];
+                promtH2.textContent = inEnglish == false ? options[8] : options[24];
                 break;
             case 9:
-                promtH2.textContent = options[9];
+                promtH2.textContent = inEnglish == false ? options[9] : options[25];
                 break;
             case 10:
-                promtH2.textContent = options[10];
+                promtH2.textContent = inEnglish == false ? options[10] : options[26];
                 break;
             case 11:
-                promtH2.textContent = options[11];
+                promtH2.textContent = inEnglish == false ? options[11] : options[27];
                 break;
             case 12:
-                promtH2.textContent = options[12];
+                promtH2.textContent = inEnglish == false ? options[12] : options[28];
                 break;
             case 13:
-                promtH2.textContent = options[13];
+                promtH2.textContent = inEnglish == false ? options[13] : options[29];
                 break;
             case 14:
-                promtH2.textContent = options[14];
+                promtH2.textContent = inEnglish == false ? options[14] : options[30];
                 break;
             case 15:
-                promtH2.textContent = options[15];
+                promtH2.textContent = inEnglish == false ? options[15] : options[31];
                 break;
             default:
                 promtH2.textContent = textPromt;
         }
-        if (clicks == 2){
-            promtH2.textContent = textPromt;
-            click = 0;
-            //captureBtn.disabled = false;
-            //camera();
+        if (fotoBtn.disabled == false){
+            fotoBtn.style.color = '#022371';
+            fotoBtn.style.border = '1px solid #022371';
+            fotoBtn.style.cursor = 'pointer';
         }
     });
 });
 
-// if one is clicked, deactivate function for all other elements
-// .
+
 // download-Btn > take another picture
 // new canvas to download a card
 
@@ -114,8 +114,8 @@ returnBtn.disabled = false;
 captureBtn.addEventListener("click", () => {
     var count = 1;
     if (count > 0){
-        returnBtn.disabled = true;
         captureBtn.disabled = true;
+        fotoBtn.disabled = true;
         captureBtn.textContent = "...";
 
         var countdown = setInterval(() => {            
@@ -123,18 +123,18 @@ captureBtn.addEventListener("click", () => {
             if (count <= 0){
                 clearInterval(countdown);
                 captureBtn.disabled = false;
-                returnBtn.disabled = false;
                 capturePhoto();
+                bingo();
                 count = 1;
                 captureBtn.textContent = "Capture";
             }
         }, 1000);
     } else {
         capturePhoto();
+        bingo();
         count = 1;
         captureBtn.textContent = "Capture";
     }
-    bingo();
 });
 
 function capturePhoto(){
@@ -214,7 +214,7 @@ function capturePhoto(){
 
 }
 
-// Check if conditions for a Bingo are met -- Brauchen wir das
+// Check if conditions for a Bingo are met
 function checkBingo(){              // 4 Zeilen + 4 Spalten + 2 Diagonalen = 10 Chancen zu gewinnen.
     var bingoYes = [bingoDivs[0].childNodes.length !== 0, bingoDivs[1].childNodes.length !== 0, bingoDivs[2].childNodes.length !== 0, bingoDivs[3].childNodes.length !== 0,
                     bingoDivs[4].childNodes.length !== 0, bingoDivs[5].childNodes.length !== 0, bingoDivs[6].childNodes.length !== 0, bingoDivs[7].childNodes.length !== 0, 
@@ -244,12 +244,16 @@ var inheritBingo = document.getElementById("inheritBingo");
 var downloadSection = document.getElementById("download-section");
 var downloadCard = document.getElementById("download-card");
 
+/* Dark & Light Mode */
 var colorMode = document.getElementById("colorMode");
 var colorSwitch = true;
-
 colorMode.addEventListener("click", () =>{
+    changeColorMode();
+    colorSwitch = !colorSwitch;
+});
+
+function changeColorMode() {
     if (colorSwitch == true){
-        document.body.style.backgroundColor ='#022371';
         document.querySelectorAll('*').forEach(el => el.style.color = '#fff')
         video.style.border = '2px solid #fff';
         bingoDivs.forEach.call(bingoDivs, function(div, index) {
@@ -267,10 +271,12 @@ colorMode.addEventListener("click", () =>{
                     break;
             }
         });
+        document.body.style.backgroundColor = '#022371';
         downloadCard.style.border = '4px solid #fff';
         document.querySelectorAll('button').forEach(el => el.style.backgroundColor = '#022371')
+        document.querySelectorAll('button').forEach(btnBorder => btnBorder.border = '1px solid #fff')
+        colorMode.innerHTML = inEnglish ? 'Light' : 'Hell';
     } else if (colorSwitch == false) {
-        document.body.style.backgroundColor ='#fff';
         document.querySelectorAll('*').forEach(el => el.style.color = '#022371')
         video.style.border = '2px solid #022371';
         bingoDivs.forEach.call(bingoDivs, function(dive, index) {
@@ -288,12 +294,71 @@ colorMode.addEventListener("click", () =>{
                     break;
             }
         });
+        document.body.style.backgroundColor ='#fff';
         downloadCard.style.border = '4px solid #022371';
         document.querySelectorAll('button').forEach(el => el.style.backgroundColor = '#fff')
+        colorMode.innerHTML = inEnglish ? 'Dark' : 'Dunkel';
     }
-    colorSwitch = !colorSwitch;
-});
+}
 
+/* Switch english and german */
+function engLanguage(){
+    var languageSwitch = document.getElementById('language');
+
+    var lageplan = document.getElementById("lageplan");
+    var weiter = document.getElementById("weiterZuBingo");
+    var zurückzurAufgabe = document.getElementById("zurückZurAufgabe");
+    var fertigBingo = document.getElementById("fertigMitBingo");
+    var zurückZuBingo = document.getElementById("zurückZuBingo");
+    
+    var titlePrompts = document.getElementById("titlePrompts");
+    var breakPoint = document.createElement("br");
+    inEnglish = !inEnglish;
+
+    if (inEnglish == true){
+        titlePrompts.textContent = 'Find something, which...';
+        promtH2.textContent = '(Click on one of the boxes)';
+
+        /* change all button-names */
+        languageSwitch.innerHTML = 'Deutsch';
+        lageplan.innerHTML = 'Site Map';
+        colorMode.innerHTML = colorSwitch ? 'Dark' : 'Light';
+        fotoBtn.innerHTML = 'Photo';
+        weiter.innerHTML = 'continue';
+        zurückzurAufgabe.innerHTML = 'back';
+        fertigBingo.innerHTML = 'Done';
+        returnBtn.innerHTML = 'back';
+        zurückZuBingo.innerHTML = 'back';
+        downloadBtn.innerHTML = 'Download';
+        
+        /* Download Card */
+        document.getElementById("downloadCard-title").innerHTML = "Your visit<br>at the Zeche Zollern Collary";
+        document.getElementById("downloadCard-subtitle").textContent = 'Could you find all the interfaces?';
+        document.getElementById("downloadCard-ps").textContent = "(Ps. I hope there aren't any duplicates, I can't check)";
+    } else if (inEnglish == false){
+        titlePrompts.textContent = 'Finde etwas, das...';
+        promtH2.textContent = textPromt;
+        
+        /* change all button-names */
+        languageSwitch.innerHTML = 'English';
+        lageplan.innerHTML = 'Lageplan';
+        colorMode.innerHTML = colorSwitch ? 'Dunkel' : 'Hell';
+        fotoBtn.innerHTML = 'Foto';
+        weiter.innerHTML = 'weiter';
+        zurückzurAufgabe.innerHTML = 'zurück';
+        fertigBingo.innerHTML = 'Fertig';
+        returnBtn.innerHTML = 'zurück';
+        zurückZuBingo.innerHTML = 'zurück';
+        downloadBtn.innerHTML = 'Herunterladen';
+
+        /* Download Card */
+        document.getElementById("downloadCard-title").innerHTML = 'Dein Besuch<br>bei der Zeche Zollern';
+        document.getElementById("downloadCard-subtitle").textContent = 'Konntest du alle Interfaces gut finden?';
+        document.getElementById("downloadCard-ps").textContent = '(Ps. Ich hoffe, da ist nichts doppelt, ich kann es nicht überprüfen)';
+    }
+}
+
+/* show & hide the different sections */
 boxPropmts.style.display = 'none';
 bingoContainer.style.display = 'none';
 bingoBtnContainer.style.display = 'none';
@@ -325,8 +390,6 @@ function bingo(){
     video.style.display = 'none';
     controlBtns.style.display = 'none';
     downloadSection.style.display ='none';
-
-    clicks = 0;
 }
 
 function camera(){
@@ -348,7 +411,10 @@ function fertigBtn(){
     downloadSection.style.display = 'block';
 }
 
+
+/* Download Function */
 var downloadBtn = document.getElementById("download-btn");
+
 downloadBtn.addEventListener("click", (div) => {
 
 
@@ -400,12 +466,6 @@ function downloadCardImage(){
 }
 */
 
-function engLanguage(){
-    //var languageSwitch = document.getElementById('language');
-
-    inEnglish = !inEnglish;
-    //inEnglish ? languageSwitch.innerHTML = 'Deutsch' : languageSwitch.innerHTML = 'English';
-}
 
 
 // Für Bingo muss mit dem Klick auf dem Kästchen das Video-Feed geöffnet werden

@@ -1,7 +1,6 @@
 * {
     font-family: "IBM Plex Sans", sans-serif;
-    /* Schriftarten von Adobe Fonts = neue frutiger world (Bingo) & unbounded medium (subtitle) & regular (die Kästchen)
-        wir bekommen deren Schriftart */
+    /* Schriftarten von Adobe Fonts = (neue) frutiger world, medium (regular) > wir bekommen deren Schriftart */
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -31,18 +30,23 @@ header {
 button {
     font-size: min(2rem, 3vw);
     font-weight: 700;
-    padding: 10px 20px;
+    padding: 10px 20px;     /* fit medias */
     cursor: pointer;
     border-radius: 5%;
     background-color: #fff;
     border: 1px solid #022371;
     font-style: bold;
+    margin: min(0.4rem, 1rem) min(0.4rem, 1rem);
 }
 button:hover {
     color: #02237170;
+    border: 1px solid #02237170;
+}
+#fotoBtn {
+    margin-top: 0;
 }
 
-.container h1 {
+.container h1 {     /* PP neue maschine */
     font-size: min(10vw, 5rem);
     font-weight: 500;
     margin: 0.2em 1em 0em 1em;
@@ -57,14 +61,12 @@ button:hover {
     text-align: left;
     line-height: 1.7;
 }
-.container h3 {
-    font-size: min(3vw, 1.5rem);
-    font-style: italic;
-}
 .textParagraph {
     width: min(70vw, 45rem);
 }
 #download-section h3 {
+    font-size: min(3vw, 1.5rem);
+    font-style: italic;
     margin-top: 5%;
 }
 #download-card .subtitle {
@@ -73,8 +75,8 @@ button:hover {
 
 video {
     border: 2px solid #022371;
-    width: 480px;
-    height: 480px;
+    width: min(32rem, 90vw);
+    height: min(32rem, 90vw);
     object-fit: cover;
 }
 .controls {
@@ -85,7 +87,6 @@ video {
     width: 100px;
 }
 
-/* my part */
 #bingoContainer {
     display: grid;
 	grid-template-rows: repeat(4, min(10rem, 20vw));
@@ -122,29 +123,15 @@ video {
     border: 0;
 }
 .photo img {
-    width: 98px;
-    height: 98px;
-    border: 0;
+    width: min(10rem, 20vw);
+    height: min(10rem, 20vw);
+    border: min(1px, 2px) solid #022371;
     margin-top: 3%;
 }
 
-
 /* styling of the download section */
-
 #download-card {
     border: 4px solid #022371;
     padding: 5%;
     margin-bottom: 1%;
-}
-
-@media screen and (min-width: 1151px) {
-    .container h1 {
-        margin: 0.2em 1em 0em 1em;
-    }
-    .photo img {
-        width: 148px;
-        height: 148px;
-        border: 0;
-        margin-top: 3%;
-    }
 }
