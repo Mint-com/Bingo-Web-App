@@ -133,8 +133,8 @@ video {
     border: 0;
 }
 .photo img {
-    width: min(115px, 160px);
-    height: min(115px, 160px);
+    width: min(10rem, 20vw);
+    height: min(10rem, 20vw);
     border: min(1px, 2px) solid #fff;
     margin-top: 3%;
 }
