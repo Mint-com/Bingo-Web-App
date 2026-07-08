@@ -5,11 +5,11 @@ captureBtn.textContent = "Capture";
 var fotoBtn = document.getElementById("fotoBtn");
 fotoBtn.disabled = true;
 
-if (fotoBtn.disabled == true){                      // change this to dark as default
-    fotoBtn.style.color = '#02237140';
-    fotoBtn.style.border = '1px solid #02237140';
-    fotoBtn.style.cursor = 'default';
-}
+var fertigBingo = document.getElementById("fertigMitBingo");
+fertigBingo.disabled = true;
+
+captureBtn.disabled = true;
+returnBtn.disabled = false;
 
 var photosContainer = document.getElementById("photos");
 var promtH2 = document.getElementById("textPromt");
@@ -93,20 +93,12 @@ bingoDivs.forEach.call(bingoDivs, function(elem, index) {
             default:
                 promtH2.textContent = textPromt;
         }
-        if (fotoBtn.disabled == false){             // change this to dark as default
-            fotoBtn.style.color = '#022371';
-            fotoBtn.style.border = '1px solid #022371';
-            fotoBtn.style.cursor = 'pointer';
-        }
     });
 });
 
 
 // download-Btn > take another picture
 
-
-captureBtn.disabled = true;
-returnBtn.disabled = false;
 
 // Capture photo with timer
 captureBtn.addEventListener("click", () => {
@@ -229,6 +221,7 @@ function checkBingo(){              // 4 Zeilen + 4 Spalten + 2 Diagonalen = 10 
 
         var timing = 3;
 
+        fertigBingo.disabled = false;
         titlePrompts.textContent = 'BINGO!!';
         promtH2.textContent = 'Yippie!';
 
@@ -262,31 +255,6 @@ var colorSwitch = true;
 
 colorMode.addEventListener("click", () =>{
     if (colorSwitch == true){
-        document.querySelectorAll('*').forEach(el => el.style.color = '#fff')
-        video.style.border = '2px solid #fff';
-        bingoDivs.forEach.call(bingoDivs, function(div, index) {
-            div.style.border = '2px solid #fff';
-            switch (index) {
-                case 1:
-                case 3:
-                case 4:
-                case 6:
-                case 9:
-                case 11:
-                case 12:
-                case 14:
-                    div.style.backgroundColor = '#fff';
-                    break;
-            }
-        });
-        document.body.style.backgroundColor = '#022371';
-        downloadCard.style.border = '4px solid #fff';
-        document.querySelectorAll('button').forEach(el => {
-            el.style.color = '#022371';
-            el.style.backgroundColor = '#fff';
-        });
-        colorMode.innerHTML = inEnglish ? 'Light' : 'Hell';
-    } else if (colorSwitch == false) {
         document.querySelectorAll('*').forEach(el => el.style.color = '#022371')
         video.style.border = '2px solid #022371';
         bingoDivs.forEach.call(bingoDivs, function(dive, index) {
@@ -311,6 +279,32 @@ colorMode.addEventListener("click", () =>{
             el.style.backgroundColor = '#022371';
         });
         colorMode.innerHTML = inEnglish ? 'Dark' : 'Dunkel';
+
+    } else if (colorSwitch == false) {
+        document.querySelectorAll('*').forEach(el => el.style.color = '#fff')
+        video.style.border = '2px solid #fff';
+        bingoDivs.forEach.call(bingoDivs, function(div, index) {
+            div.style.border = '2px solid #fff';
+            switch (index) {
+                case 1:
+                case 3:
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                case 12:
+                case 14:
+                    div.style.backgroundColor = '#fff';
+                    break;
+            }
+        });
+        document.body.style.backgroundColor = '#022371';
+        downloadCard.style.border = '4px solid #fff';
+        document.querySelectorAll('button').forEach(el => {
+            el.style.color = '#022371';
+            el.style.backgroundColor = '#fff';
+        });
+        colorMode.innerHTML = inEnglish ? 'Light' : 'Hell';
     }
 
     colorSwitch = !colorSwitch;
@@ -323,21 +317,22 @@ function engLanguage(){
     var lageplan = document.getElementById("lageplan");
     var weiter = document.getElementById("weiterZuBingo");
     var zurückzurAufgabe = document.getElementById("zurückZurAufgabe");
-    var fertigBingo = document.getElementById("fertigMitBingo");
     var zurückZuBingo = document.getElementById("zurückZuBingo");
     
     var titlePrompts = document.getElementById("titlePrompts");
     var breakPoint = document.createElement("br");
+    var textParagraph = document.getElementById("textParagraph");
     inEnglish = !inEnglish;
 
     if (inEnglish == true){
         titlePrompts.textContent = 'Find something, which...';
         promtH2.textContent = '(Click on one of the boxes)';
+        // textParagraph.textContent = '';
 
         /* change all button-names */
         languageSwitch.innerHTML = 'Deutsch';
         lageplan.innerHTML = 'Site Map';
-        colorMode.innerHTML = colorSwitch ? 'Dark' : 'Light';
+        colorMode.innerHTML = colorSwitch ? 'Light' : 'Dark';
         fotoBtn.innerHTML = 'Photo';
         weiter.innerHTML = 'continue';
         zurückzurAufgabe.innerHTML = 'back';
@@ -353,11 +348,12 @@ function engLanguage(){
     } else if (inEnglish == false){
         titlePrompts.textContent = 'Finde etwas, das...';
         promtH2.textContent = textPromt;
+        // textParagraph.textContent = '';
         
         /* change all button-names */
         languageSwitch.innerHTML = 'English';
         lageplan.innerHTML = 'Lageplan';
-        colorMode.innerHTML = colorSwitch ? 'Dunkel' : 'Hell';
+        colorMode.innerHTML = colorSwitch ? 'Hell' : 'Dunkel';
         fotoBtn.innerHTML = 'Foto';
         weiter.innerHTML = 'weiter';
         zurückzurAufgabe.innerHTML = 'zurück';

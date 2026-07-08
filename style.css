@@ -2,10 +2,10 @@
     font-family: "IBM Plex Sans", sans-serif;
     /* Schriftarten von Adobe Fonts = (neue) frutiger world, medium (regular) > wir bekommen deren Schriftart */
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
     font-variation-settings: "wdth" 100;
-    color: #022371;
+    color: #fff;
 }
 body {
     position: absolute;
@@ -16,6 +16,7 @@ body {
     justify-content: center;
     align-items: center;
     object-fit: contain;
+    background-color: #022371;
 }
 header {
     position: absolute;
@@ -37,14 +38,21 @@ button {
     padding: 10px 20px;     /* fit medias */
     cursor: pointer;
     border-radius: 5%;
-    color: #fff;
-    background-color: #022371;
+    color: #022371;
+    background-color: #fff;
     font-style: bold;
     margin: min(0.4rem, 1rem) min(0.4rem, 1rem);
 }
 button:hover {
-    color: #02237170;
-    border: 1px solid #02237170;
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: #022371;
+}
+button:disabled {
+    color: #ffffff70;
+    border: 2px solid #ffffff70;
+    background-color: #022371;
+    cursor: default;
 }
 #fotoBtn {
     margin-top: 0;
@@ -60,13 +68,11 @@ button:hover {
     font-weight: 400;
     margin: 0.2rem min(0.5rem, 1rem);
 }
-#aufgabenstellung p {
+#textParagraph {
     font-size: min(3vw, 1.5rem);
-    text-align: left;
+    text-align: justify;
     line-height: 1.7;
-}
-.textParagraph {
-    width: min(70vw, 45rem);
+    width: min(72vw, 48rem);
 }
 #download-section h3 {
     font-size: min(3vw, 1.5rem);
@@ -78,7 +84,7 @@ button:hover {
 }
 
 video {
-    border: 2px solid #022371;
+    border: 2px solid #fff;
     width: min(32rem, 90vw);
     height: min(32rem, 90vw);
     object-fit: cover;
@@ -100,7 +106,7 @@ video {
     margin: 5% 5%;
 }
 #bingoContainer > div {
-    border: min(1px, 2px) solid #022371;
+    border: min(1px, 2px) solid #fff;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -114,7 +120,7 @@ video {
 #box12,
 #box13,
 #box15 {
-    background-color: #022371;
+    background-color: #fff;
 }
 #inheritBingo {
     margin: 4em 1em;
@@ -127,15 +133,15 @@ video {
     border: 0;
 }
 .photo img {
-    width: min(10rem, 20vw);
-    height: min(10rem, 20vw);
-    border: min(1px, 2px) solid #022371;
+    width: min(115px, 160px);
+    height: min(115px, 160px);
+    border: min(1px, 2px) solid #fff;
     margin-top: 3%;
 }
 
 /* styling of the download section */
 #download-card {
-    border: 4px solid #022371;
+    border: 4px solid #fff;
     padding: 5%;
     margin-bottom: 1%;
 }
