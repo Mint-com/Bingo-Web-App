@@ -37,8 +37,8 @@ button {
     padding: 10px 20px;     /* fit medias */
     cursor: pointer;
     border-radius: 5%;
-    background-color: #fff;
-    border: 1px solid #022371;
+    color: #fff;
+    background-color: #022371;
     font-style: bold;
     margin: min(0.4rem, 1rem) min(0.4rem, 1rem);
 }

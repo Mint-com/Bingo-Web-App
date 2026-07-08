@@ -1,5 +1,3 @@
-// import html2canvas from 'html2canvas';
-
 var video = document.getElementById("video");
 var returnBtn = document.getElementById("return-btn");
 var captureBtn = document.getElementById("capture-btn");
@@ -30,6 +28,7 @@ var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"
                 document.getElementById("box5"), document.getElementById("box6"), document.getElementById("box7"), document.getElementById("box8"),
                 document.getElementById("box9"), document.getElementById("box10"), document.getElementById("box11"), document.getElementById("box12"),
                 document.getElementById("box13"), document.getElementById("box14"), document.getElementById("box15"), document.getElementById("box16")];
+
 
 //Access the camera and stream to video
 navigator.mediaDevices.getUserMedia({ video: true}, {facingMode: 'environment'}).then((stream) => {
@@ -104,7 +103,6 @@ bingoDivs.forEach.call(bingoDivs, function(elem, index) {
 
 
 // download-Btn > take another picture
-// new canvas to download a card
 
 
 captureBtn.disabled = true;
@@ -228,24 +226,19 @@ function checkBingo(){              // 4 Zeilen + 4 Spalten + 2 Diagonalen = 10 
         bingoYes[2] && bingoYes[6] && bingoYes[10] && bingoYes[14] || bingoYes[3] && bingoYes[7] && bingoYes[11] && bingoYes[15] ||             // alle Spalten 4x4
         bingoYes[0] && bingoYes[5] && bingoYes[10] && bingoYes[15] || bingoYes[3] && bingoYes[6] && bingoYes[9] && bingoYes[12] )               // die zwei diagonalen
     {
-        
-        titlePrompts.style.display = 'none';
-        textPromt.style.display = 'none';
-        //options.forEach(each, function () { each.style.display = 'none'; }
-        
-        var congratulations = document.createElement('h1');
-        congratulations.innerHTML = 'BINGO!!';
 
-        var timing = 6;
+        var timing = 3;
 
-        var id = setInterval(function() {timing--;
-            if (timing < 0) {
+        titlePrompts.textContent = 'BINGO!!';
+        promtH2.textContent = 'Yippie!';
+
+        var id = setInterval(function() {
+            timing--;
+            if (timing == 0) {
+                titlePrompts.textContent = 'Finde etwas, das...';
+                promtH2.textContent = textPromt;
+
                 clearInterval(id);
-                titlePrompts.style.display = 'block';
-                textPromt.style.display = 'block';
-                options.style.display = 'block';
-            } else {
-                boxPropmts.appendChild(congratulations);
             }
         }, 1000);
     }
@@ -288,8 +281,10 @@ colorMode.addEventListener("click", () =>{
         });
         document.body.style.backgroundColor = '#022371';
         downloadCard.style.border = '4px solid #fff';
-        document.querySelectorAll('button').forEach(el => el.style.backgroundColor = '#022371')
-        document.querySelectorAll('button').forEach(btnBorder => btnBorder.border = '1px solid #fff')
+        document.querySelectorAll('button').forEach(el => {
+            el.style.color = '#022371';
+            el.style.backgroundColor = '#fff';
+        });
         colorMode.innerHTML = inEnglish ? 'Light' : 'Hell';
     } else if (colorSwitch == false) {
         document.querySelectorAll('*').forEach(el => el.style.color = '#022371')
@@ -309,9 +304,12 @@ colorMode.addEventListener("click", () =>{
                     break;
             }
         });
-        document.body.style.backgroundColor ='#fff';
+        document.body.style.backgroundColor = '#fff';
         downloadCard.style.border = '4px solid #022371';
-        document.querySelectorAll('button').forEach(el => el.style.backgroundColor = '#fff')
+        document.querySelectorAll('button').forEach(el => {
+            el.style.color = '#fff';
+            el.style.backgroundColor = '#022371';
+        });
         colorMode.innerHTML = inEnglish ? 'Dark' : 'Dunkel';
     }
 
@@ -379,7 +377,7 @@ function engLanguage(){
 boxPropmts.style.display = 'none';
 bingoContainer.style.display = 'none';
 bingoBtnContainer.style.display = 'none';
-video.style.display = 'hidden';
+video.style.display = 'none';
 controlBtns.style.display = 'none';
 downloadSection.style.display ='none';
 
@@ -389,11 +387,10 @@ function aufgabenstellung(){
     boxPropmts.style.display = 'none';
     bingoContainer.style.display = 'none';
     bingoBtnContainer.style.display = 'none';
-    video.style.display = 'hidden';
+    video.style.display = 'none';
     controlBtns.style.display = 'none';
     downloadSection.style.display ='none';
 }
-
 function bingo(){
     boxPropmts.style.display = 'block';
     bingoContainer.style.display = 'grid';
@@ -401,11 +398,10 @@ function bingo(){
     takeBackBingo.appendChild(bingoContainer);
 
     aufgabe.style.display = 'none';
-    video.style.display = 'hidden';
+    video.style.display = 'none';
     controlBtns.style.display = 'none';
     downloadSection.style.display ='none';
 }
-
 function camera(){
     video.style.display = 'block';
     controlBtns.style.display = 'block';
@@ -416,7 +412,6 @@ function camera(){
     bingoBtnContainer.style.display = 'none';
     downloadSection.style.display ='none';
 }
-
 function fertigBtn(){
     boxPropmts.style.display = 'none';
     bingoBtnContainer.style.display = 'none';
