@@ -72,7 +72,7 @@ button:disabled {
     font-size: min(3vw, 1.5rem);
     text-align: justify;
     line-height: 1.7;
-    width: min(72vw, 48rem);
+    width: min(70vw, 45rem);
 }
 #download-section h3 {
     font-size: min(3vw, 1.5rem);
