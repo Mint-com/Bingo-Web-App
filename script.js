@@ -7,7 +7,7 @@ captureBtn.textContent = "Capture";
 var fotoBtn = document.getElementById("fotoBtn");
 fotoBtn.disabled = true;
 
-if (fotoBtn.disabled == true){
+if (fotoBtn.disabled == true){                      // change this to dark as default
     fotoBtn.style.color = '#02237140';
     fotoBtn.style.border = '1px solid #02237140';
     fotoBtn.style.cursor = 'default';
@@ -94,7 +94,7 @@ bingoDivs.forEach.call(bingoDivs, function(elem, index) {
             default:
                 promtH2.textContent = textPromt;
         }
-        if (fotoBtn.disabled == false){
+        if (fotoBtn.disabled == false){             // change this to dark as default
             fotoBtn.style.color = '#022371';
             fotoBtn.style.border = '1px solid #022371';
             fotoBtn.style.cursor = 'pointer';
@@ -127,6 +127,7 @@ captureBtn.addEventListener("click", () => {
                 bingo();
                 count = 1;
                 captureBtn.textContent = "Capture";
+                checkBingo();
             }
         }, 1000);
     } else {
@@ -134,6 +135,7 @@ captureBtn.addEventListener("click", () => {
         bingo();
         count = 1;
         captureBtn.textContent = "Capture";
+        checkBingo();
     }
 });
 
@@ -210,8 +212,6 @@ function capturePhoto(){
     }
 
     captureBtn.disabled = true;
-    checkBingo();
-
 }
 
 // Check if conditions for a Bingo are met
@@ -228,7 +228,26 @@ function checkBingo(){              // 4 Zeilen + 4 Spalten + 2 Diagonalen = 10 
         bingoYes[2] && bingoYes[6] && bingoYes[10] && bingoYes[14] || bingoYes[3] && bingoYes[7] && bingoYes[11] && bingoYes[15] ||             // alle Spalten 4x4
         bingoYes[0] && bingoYes[5] && bingoYes[10] && bingoYes[15] || bingoYes[3] && bingoYes[6] && bingoYes[9] && bingoYes[12] )               // die zwei diagonalen
     {
-        console.log(`Bingo!`);
+        
+        titlePrompts.style.display = 'none';
+        textPromt.style.display = 'none';
+        //options.forEach(each, function () { each.style.display = 'none'; }
+        
+        var congratulations = document.createElement('h1');
+        congratulations.innerHTML = 'BINGO!!';
+
+        var timing = 6;
+
+        var id = setInterval(function() {timing--;
+            if (timing < 0) {
+                clearInterval(id);
+                titlePrompts.style.display = 'block';
+                textPromt.style.display = 'block';
+                options.style.display = 'block';
+            } else {
+                boxPropmts.appendChild(congratulations);
+            }
+        }, 1000);
     }
 }
 
@@ -244,15 +263,11 @@ var inheritBingo = document.getElementById("inheritBingo");
 var downloadSection = document.getElementById("download-section");
 var downloadCard = document.getElementById("download-card");
 
-/* Dark & Light Mode */
+/* Dark & Light Mode */                                                 // change this to dark as default
 var colorMode = document.getElementById("colorMode");
 var colorSwitch = true;
-colorMode.addEventListener("click", () =>{
-    changeColorMode();
-    colorSwitch = !colorSwitch;
-});
 
-function changeColorMode() {
+colorMode.addEventListener("click", () =>{
     if (colorSwitch == true){
         document.querySelectorAll('*').forEach(el => el.style.color = '#fff')
         video.style.border = '2px solid #fff';
@@ -299,7 +314,9 @@ function changeColorMode() {
         document.querySelectorAll('button').forEach(el => el.style.backgroundColor = '#fff')
         colorMode.innerHTML = inEnglish ? 'Dark' : 'Dunkel';
     }
-}
+
+    colorSwitch = !colorSwitch;
+});
 
 /* Switch english and german */
 function engLanguage(){
@@ -362,7 +379,7 @@ function engLanguage(){
 boxPropmts.style.display = 'none';
 bingoContainer.style.display = 'none';
 bingoBtnContainer.style.display = 'none';
-video.style.display = 'none';
+video.style.display = 'hidden';
 controlBtns.style.display = 'none';
 downloadSection.style.display ='none';
 
@@ -372,22 +389,19 @@ function aufgabenstellung(){
     boxPropmts.style.display = 'none';
     bingoContainer.style.display = 'none';
     bingoBtnContainer.style.display = 'none';
-    video.style.display = 'none';
+    video.style.display = 'hidden';
     controlBtns.style.display = 'none';
     downloadSection.style.display ='none';
 }
 
 function bingo(){
-    bingoDivs.forEach(function(lol) {
-        lol.style.backgroundColor = '';
-    });
     boxPropmts.style.display = 'block';
     bingoContainer.style.display = 'grid';
     bingoBtnContainer.style.display = 'block';
     takeBackBingo.appendChild(bingoContainer);
 
     aufgabe.style.display = 'none';
-    video.style.display = 'none';
+    video.style.display = 'hidden';
     controlBtns.style.display = 'none';
     downloadSection.style.display ='none';
 }
@@ -416,55 +430,15 @@ function fertigBtn(){
 var downloadBtn = document.getElementById("download-btn");
 
 downloadBtn.addEventListener("click", (div) => {
+    // html2canvas library
 
-
-    define(["html2canvas"], function(html2canvas) // This parameter is important.
-    {
-        html2canvas(document.body).then(function(canvas)
-        {
-            /*onrendered: function(canvas) {
-                var img = canvas.toDataURL();
-                window.open(img);
-            }*/
-            console.log("This works.");
-        });
+    html2canvas(downloadCard).then(canvas => {
+        var a = document.createElement("a");
+        a.href = canvas.toDataURL("image/png");
+        a.download = "image.png";
+        a.click();
     });
-
-
-    /*var cardCanvas = document.createElement("canvas");
-    var cardContext = cardCanvas.getContext("2d");
-
-    cardCanvas.width = downloadCard.downloadCardWidth;
-    cardCanvas.height = downloadCard.downloadCardHeight;
-    
-    cardCanvas.appendChild("downloadCard");
-    cardContext.drawImage(downloadCard, cardCanvas.width, cardCanvas.height);
-
-    var a = document.createElement("a");
-
-    a.href = cardCanvas.toDataURL();
-
-    a.download = "Interfaces.png";
-    a.click();*/
 });
-
-/*
-function downloadCardImage(){
-
-    // Draw the current video frame to the canvas
-    var cardDataURL = canvas.toDataURL("image/png");
-
-    // Create image list from captured photo
-    // photoDiv.classList.add("photo");
-
-    var cardImg = document.createElement("img");
-    cardImg.src = cardDataURL;
-    // photoDiv.appendChild(img);
-
-    // Create download image feature
-    
-}
-*/
 
 
 
@@ -475,4 +449,6 @@ function downloadCardImage(){
 // Got it!      -- 3. wenn drei in einer Zeile/Spalte/Diagonale ein Bild haben > Bingo! -- if/else or switch ob bestimmte Zeile/Spalte/Diagonalen erfüllt sind
 // 4. ab Bingo und/oder bis alle voll sind, kann man weiter und eine Karte herunterladen, Keywords jeweils?
 //      ask for confirmation before leaving the picture unchanged
+
+// if there already was a picture, delete the previous one
 
