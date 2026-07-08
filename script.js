@@ -31,22 +31,22 @@ var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"
 
 
 // Access the camera and stream to video
-navigator.mediaDevices.getUserMedia({ video: true, facingMode: {exact: 'environment'} }).then((stream) => {
-    video.srcObject = stream;
-});
+// navigator.mediaDevices.getUserMedia({ video: true, facingMode: {exact: 'environment'} }).then((stream) => {
+//     video.srcObject = stream;
+// });
 
 // const initCamera = () => {
-//     navigator.mediaDevices
-//     .getUserMedia({
-//         video: true,
-//         facingMode: {exact: "environment"},
-//     })
-//     .then((stream) => {
-//         video.value.srcObject = stream;
-//     })
-//     .catch((error) => {
-//         hasCameraSupport.value = false;
-//     });
+    navigator.mediaDevices
+    .getUserMedia({
+        video: true,
+        facingMode: {exact: "environment"},
+    })
+    .then((stream) => {
+        video.value.srcObject = stream;
+    })
+    .catch((error) => {
+        hasCameraSupport.value = false;
+    });
 // };
 
 
