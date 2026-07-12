@@ -31,23 +31,17 @@ var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"
 
 
 // Access the camera and stream to video
-MediaDevices.getUserMedia({video: { facingMode: {exact: environment}, }}).then((stream) => {
+MediaDevices.getUserMedia(constraints).then((stream) => {
     video.srcObject = stream;
 });
 
-// // const initCamera = () => {
-//     navigator.mediaDevices
-//     .getUserMedia({
-//         video: true,
-//         facingMode: {exact: "environment"},
-//     })
-//     .then((stream) => {
-//         video.value.srcObject = stream;
-//     })
-//     .catch((error) => {
-//         hasCameraSupport.value = false;
-//     });
-// // };
+var constraints = { video:
+    {facingMode: "environment"},
+    mandatory: {
+        maxWidth: _this.parameters.sourceWidth,
+        maxHeight: _this.parameters.sourceHeight
+    }
+};
 
 
 // Choose a Box and display its condition
