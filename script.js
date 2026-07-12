@@ -30,22 +30,9 @@ var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"
                 document.getElementById("box13"), document.getElementById("box14"), document.getElementById("box15"), document.getElementById("box16")];
 
 
-// Access the camera and stream to video
-// navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-//     video.srcObject = stream;
-// });
-
-// var constraints = { video:
-//     {facingMode: "environment"},
-// };
-
-const stream = await navigator.mediaDevices.getUserMedia({
-    'audio': false,
-    'video': {
-        facingMode: 'enviroment',
-    },
-    });
-video.srcObject = stream;
+navigator.mediaDevices.getUserMedia({video: true, facingMode: {mode: environment}, }).then((stream) => {
+    video.srcObject = stream;
+});
 
 
 // Choose a Box and display its condition
