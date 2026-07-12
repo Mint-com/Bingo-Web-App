@@ -68,7 +68,8 @@ button:disabled {
     font-weight: 400;
     margin: 0.2rem min(0.5rem, 1rem);
 }
-#textParagraph {
+#textParagraph,
+#textParagraphEnglish {
     font-size: min(3vw, 1.5rem);
     text-align: justify;
     line-height: 1.7;
@@ -136,7 +137,7 @@ video {
     width: min(10rem, 20vw);
     height: min(10rem, 20vw);
     border: min(1px, 2px) solid #fff;
-    margin-top: 3%;
+    margin-top: 5%;
 }
 
 /* styling of the download section */

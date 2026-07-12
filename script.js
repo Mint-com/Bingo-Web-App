@@ -31,23 +31,23 @@ var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"
 
 
 // Access the camera and stream to video
-// navigator.mediaDevices.getUserMedia({ video: true, facingMode: {exact: 'environment'} }).then((stream) => {
-//     video.srcObject = stream;
-// });
+navigator.mediaDevices.getUserMedia({video: true, facingMode: {exact: "environment"}, }).then((stream) => {
+    video.srcObject = stream;
+});
 
-// const initCamera = () => {
-    navigator.mediaDevices
-    .getUserMedia({
-        video: true,
-        facingMode: {exact: "environment"},
-    })
-    .then((stream) => {
-        video.value.srcObject = stream;
-    })
-    .catch((error) => {
-        hasCameraSupport.value = false;
-    });
-// };
+// // const initCamera = () => {
+//     navigator.mediaDevices
+//     .getUserMedia({
+//         video: true,
+//         facingMode: {exact: "environment"},
+//     })
+//     .then((stream) => {
+//         video.value.srcObject = stream;
+//     })
+//     .catch((error) => {
+//         hasCameraSupport.value = false;
+//     });
+// // };
 
 
 // Choose a Box and display its condition
@@ -341,7 +341,8 @@ function engLanguage(){
     if (inEnglish == true){
         titlePrompts.textContent = 'Find something, which...';
         promtH2.textContent = '(Click on one of the boxes)';
-        // textParagraph.textContent = '';
+        textParagraph.style.display = 'none';
+        textParagraphEnglish.style.display = 'block';
 
         /* change all button-names */
         languageSwitch.innerHTML = 'Deutsch';
@@ -362,7 +363,8 @@ function engLanguage(){
     } else if (inEnglish == false){
         titlePrompts.textContent = 'Finde etwas, das...';
         promtH2.textContent = textPromt;
-        // textParagraph.textContent = '';
+        textParagraph.style.display = 'block';
+        textParagraphEnglish.style.display = 'none';
         
         /* change all button-names */
         languageSwitch.innerHTML = 'English';
