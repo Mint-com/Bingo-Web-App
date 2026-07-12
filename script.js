@@ -31,7 +31,7 @@ var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"
 
 
 // Access the camera and stream to video
-MediaDevices.getUserMedia(constraints).then((stream) => {
+navigator.getUserMedia(constraints).then((stream) => {
     video.srcObject = stream;
 });
 
