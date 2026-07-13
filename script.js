@@ -148,51 +148,67 @@ function capturePhoto(){
     // Draw the picture to the chosen Box
     switch(promtH2.textContent){
         case options[0]:
+        case options[16]:
             bingoDivs[0].appendChild(photoDiv);
             break;
         case options[1]:
+        case options[17]:
             bingoDivs[1].appendChild(photoDiv);
             break;
         case options[2]:
+        case options[18]:
             bingoDivs[2].appendChild(photoDiv);
             break;
         case options[3]:
+        case options[19]:
             bingoDivs[3].appendChild(photoDiv);
             break;
         case options[4]:
+        case options[20]:
             bingoDivs[4].appendChild(photoDiv);
             break;
         case options[5]:
+        case options[21]:
             bingoDivs[5].appendChild(photoDiv);
             break;
         case options[6]:
+        case options[22]:
             bingoDivs[6].appendChild(photoDiv);
             break;
         case options[7]:
+        case options[23]:
             bingoDivs[7].appendChild(photoDiv);
             break;
         case options[8]:
+        case options[24]:
             bingoDivs[8].appendChild(photoDiv);
             break;
         case options[9]:
+        case options[25]:
             bingoDivs[9].appendChild(photoDiv);
             break;
         case options[10]:
+        case options[26]:
             bingoDivs[10].appendChild(photoDiv);
             break;
         case options[11]:
+        case options[27]:
             bingoDivs[11].appendChild(photoDiv);
             break;
         case options[12]:
+        case options[28]:
             bingoDivs[12].appendChild(photoDiv);
             break;
         case options[13]:
+        case options[29]:
             bingoDivs[13].appendChild(photoDiv);
             break;
         case options[14]:
+        case options[30]:
             bingoDivs[14].appendChild(photoDiv);
             break;
         case options[15]:
+        case options[31]:
             bingoDivs[15].appendChild(photoDiv);
             break;
         default:
@@ -422,7 +438,6 @@ var downloadBtn = document.getElementById("download-btn");
 
 downloadBtn.addEventListener("click", (div) => {
     // html2canvas library
-
     html2canvas(downloadCard).then(canvas => {
         var a = document.createElement("a");
         a.href = canvas.toDataURL("image/png");
