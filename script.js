@@ -30,10 +30,9 @@ var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"
                 document.getElementById("box13"), document.getElementById("box14"), document.getElementById("box15"), document.getElementById("box16")];
 
 
-navigator.mediaDevices.getUserMedia({video: true, facingMode: {exact: environment}, }).then((stream) => {
+navigator.mediaDevices.getUserMedia({video: true, facingMode: {exact: "environment"}, }).then((stream) => {
     video.srcObject = stream;
 });
-
 
 // Choose a Box and display its condition
 bingoDivs.forEach.call(bingoDivs, function(elem, index) {
