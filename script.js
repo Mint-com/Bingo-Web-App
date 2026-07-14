@@ -231,21 +231,21 @@ function checkBingo(){              // 4 Zeilen + 4 Spalten + 2 Diagonalen = 10 
         bingoYes[0] && bingoYes[5] && bingoYes[10] && bingoYes[15] || bingoYes[3] && bingoYes[6] && bingoYes[9] && bingoYes[12] )               // die zwei diagonalen
     {
 
-        var timing = 3;
+        // var timing = 3;
 
         fertigBingo.disabled = false;
-        titlePrompts.textContent = 'BINGO!!';
-        promtH2.textContent = 'Yippie!';
+        // titlePrompts.textContent = 'BINGO!!';
+        // promtH2.textContent = 'Yippie!';
 
-        var id = setInterval(function() {
-            timing--;
-            if (timing == 0) {
-                titlePrompts.textContent = 'Finde etwas, das...';
-                promtH2.textContent = textPromt;
+        // var id = setInterval(function() {
+        //     timing--;
+        //     if (timing == 0) {
+        //         titlePrompts.textContent = 'Finde etwas, das...';
+        //         promtH2.textContent = textPromt;
 
-                clearInterval(id);
-            }
-        }, 1000);
+        //         clearInterval(id);
+        //     }
+        // }, 1000);
     }
 }
 
@@ -349,10 +349,10 @@ function engLanguage(){
         languageSwitch.innerHTML = 'Deutsch';
         lageplan.innerHTML = 'Site Map';
         colorMode.innerHTML = colorSwitch ? 'Light' : 'Dark';
-        fotoBtn.innerHTML = 'Photo';
-        weiter.innerHTML = 'continue';
+        fotoBtn.innerHTML = 'to the camera';
+        weiter.innerHTML = 'to the Bingo';
         zurückzurAufgabe.innerHTML = 'back';
-        fertigBingo.innerHTML = 'Done';
+        fertigBingo.innerHTML = 'download the card';
         returnBtn.innerHTML = 'back';
         zurückZuBingo.innerHTML = 'back';
         downloadBtn.innerHTML = 'Download';
@@ -371,10 +371,10 @@ function engLanguage(){
         languageSwitch.innerHTML = 'English';
         lageplan.innerHTML = 'Lageplan';
         colorMode.innerHTML = colorSwitch ? 'Hell' : 'Dunkel';
-        fotoBtn.innerHTML = 'Foto';
-        weiter.innerHTML = 'weiter';
+        fotoBtn.innerHTML = 'zur Kamera';
+        weiter.innerHTML = 'zum Bingo';
         zurückzurAufgabe.innerHTML = 'zurück';
-        fertigBingo.innerHTML = 'Fertig';
+        fertigBingo.innerHTML = 'Karte herunterladen';
         returnBtn.innerHTML = 'zurück';
         zurückZuBingo.innerHTML = 'zurück';
         downloadBtn.innerHTML = 'Herunterladen';
