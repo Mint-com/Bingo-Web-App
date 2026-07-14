@@ -426,7 +426,7 @@ function camera(){
     downloadSection.style.display ='none';
 }
 function fertigBtn(){
-    colorFarbe();
+    if (!colorSwitch) {colorFarbe();}
     boxPropmts.style.display = 'none';
     bingoBtnContainer.style.display = 'none';
 
