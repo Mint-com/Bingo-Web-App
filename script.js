@@ -30,6 +30,7 @@ var bingoDivs = [document.getElementById("box1"), document.getElementById("box2"
                 document.getElementById("box13"), document.getElementById("box14"), document.getElementById("box15"), document.getElementById("box16")];
 
 
+/* Access the camera and stream to video-element */
 navigator.mediaDevices.getUserMedia({video: true, facingMode: {exact: "environment"}, }).then((stream) => {
     video.srcObject = stream;
 });
@@ -93,9 +94,6 @@ bingoDivs.forEach.call(bingoDivs, function(elem, index) {
         }
     });
 });
-
-
-// download-Btn > take another picture
 
 
 // Capture photo with timer
@@ -263,7 +261,7 @@ var inheritBingo = document.getElementById("inheritBingo");
 var downloadSection = document.getElementById("download-section");
 var downloadCard = document.getElementById("download-card");
 
-/* Dark & Light Mode */                                                 // change this to dark as default
+/* Dark & Light Mode */
 var colorMode = document.getElementById("colorMode");
 var colorSwitch = true;
 
@@ -456,8 +454,8 @@ downloadBtn.addEventListener("click", (div) => {
 // Got it!      -- 1. 9 leere Kästchen und je nach welcher angeklickt wurde, wird ein Text unter dem Video gezeigt
 // Got it!      -- 2. wenn ein Foto aufgenommen wird, wird es auf das Kästchen gezogen
 // Got it!      -- 3. wenn drei in einer Zeile/Spalte/Diagonale ein Bild haben > Bingo! -- if/else or switch ob bestimmte Zeile/Spalte/Diagonalen erfüllt sind
-// 4. ab Bingo und/oder bis alle voll sind, kann man weiter und eine Karte herunterladen, Keywords jeweils?
-//      ask for confirmation before leaving the picture unchanged
+// Got it!      -- 4. ab Bingo und/oder bis alle voll sind, kann man weiter und eine Karte herunterladen, Keywords jeweils?
+//                  ask for confirmation before leaving the picture unchanged
 
-// if there already was a picture, delete the previous one
+// if there already was a picture, delete the previous one -- not possible to take another picture
 
