@@ -267,7 +267,8 @@ var downloadCard = document.getElementById("download-card");
 var colorMode = document.getElementById("colorMode");
 var colorSwitch = true;
 
-colorMode.addEventListener("click", () =>{
+colorMode.addEventListener("click", () =>{ colorFarbe() });
+function colorFarbe(){
     if (colorSwitch == true){
         document.querySelectorAll('*').forEach(el => el.style.color = '#022371')
         video.style.border = '2px solid #022371';
@@ -322,7 +323,7 @@ colorMode.addEventListener("click", () =>{
     }
 
     colorSwitch = !colorSwitch;
-});
+}
 
 /* Switch english and german */
 function engLanguage(){
@@ -425,11 +426,14 @@ function camera(){
     downloadSection.style.display ='none';
 }
 function fertigBtn(){
+    colorFarbe();
     boxPropmts.style.display = 'none';
     bingoBtnContainer.style.display = 'none';
 
     inheritBingo.appendChild(bingoContainer);
     downloadSection.style.display = 'block';
+
+    colorMode.disabled = true;
 }
 
 
