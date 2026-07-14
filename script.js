@@ -37,7 +37,7 @@ navigator.mediaDevices.getUserMedia({video: true, facingMode: {exact: "environme
 // Choose a Box and display its condition
 bingoDivs.forEach.call(bingoDivs, function(elem, index) {
     elem.addEventListener('click', () => {
-        fotoBtn.disabled = false;
+        elem.childNodes.length !== 0 ? fotoBtn.disabled = true : fotoBtn.disabled = false;
         captureBtn.disabled = false;
         switch(index){
             case 0:
@@ -289,6 +289,7 @@ function colorFarbe(){
         });
         document.body.style.backgroundColor = '#fff';
         downloadCard.style.border = '4px solid #022371';
+        downloadCard.style.backgroundColor = '#fff';
         document.querySelectorAll('button').forEach(el => {
             el.style.color = '#fff';
             el.style.backgroundColor = '#022371';
@@ -315,6 +316,7 @@ function colorFarbe(){
         });
         document.body.style.backgroundColor = '#022371';
         downloadCard.style.border = '4px solid #fff';
+        downloadCard.style.backgroundColor = '#022371';
         document.querySelectorAll('button').forEach(el => {
             el.style.color = '#022371';
             el.style.backgroundColor = '#fff';
@@ -426,14 +428,11 @@ function camera(){
     downloadSection.style.display ='none';
 }
 function fertigBtn(){
-    if (!colorSwitch) {colorFarbe();}
     boxPropmts.style.display = 'none';
     bingoBtnContainer.style.display = 'none';
 
     inheritBingo.appendChild(bingoContainer);
     downloadSection.style.display = 'block';
-
-    colorMode.disabled = true;
 }
 
 

@@ -143,6 +143,7 @@ video {
 /* styling of the download section */
 #download-card {
     border: 4px solid #fff;
+    background-color: #022371;
     padding: 5%;
     margin-bottom: 1%;
 }
